@@ -16,6 +16,22 @@ function addBoxes (numBoxes){
     //4.
     box.addEventListener('click', function() {
       let click = this.classList.toggle('clicked');
+
+    //3.
+    let max =16;
+    const min = 1;
+    lvl();
+    let listNum = [];
+
+    if(click){
+      let print = box.innerHTML;
+      print = Math.floor(Math.random() * (max - min + 1) + min);
+      listNum.push(print);
+      
+      console.log(listNum);
+    } else{
+      box.innerHTML= ' ';
+    }
   })
   }
 }
