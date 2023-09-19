@@ -19,12 +19,13 @@ function addBoxes (numBoxes){
 
     //3.2 veriffica click cella con bomba 
       let isBomb = false;
-      if (listBom.includes(i)){
+      if (listBomb.includes(i)){
         isBomb = true;
       }
 
       if(isBomb){
         this.classList.toggle('bomb');
+
       }else {
       this.classList.toggle('clicked');
       }
@@ -33,28 +34,29 @@ function addBoxes (numBoxes){
 }
  
 //5.
-let listBom =[];
+let listBomb =[];
 
 btnStart.addEventListener('click', function(){
   containerGame.classList.remove('hide')
   containerGame.innerHTML= ' ';
-
   // 2.2 generazione array con numeri randomici all'interno
+
   for(let i = 0 ; i < 16; i++){ 
-    let tmp = Math.floor(Math.random() * 49) +1;
-    
+    let tmp = Math.floor(Math.random() * 49) +1;   
     let nuovo = true;
+  
     for(let j = 0; j < i; j++){
-      if(listBom[j]==tmp)nuovo=false;
+      if(listBomb[j]==tmp)nuovo=false;
     }
     if(nuovo){
-      listBom[i]=tmp;
+      listBomb[i]=tmp;
     }else{
       i--;
     }
-  } 
   lvl();
-  console.log(listBom)
+  console.log(listBomb)
+}
+
   
 })
 
