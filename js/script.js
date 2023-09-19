@@ -16,17 +16,6 @@ function addBoxes (numBoxes){
     //4.
     box.addEventListener('click', function() {
       let click = this.classList.toggle('clicked');
-
-    //3.
-    let max =`${numBoxes}`;
-    const min = 1;
-    lvl();
-    
-    if(click){
-      box.innerHTML = Math.floor(Math.random() * (max - min + 1) + min);  
-    } else{
-      box.innerHTML= ' ';
-    }
   })
   }
 }
