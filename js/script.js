@@ -1,9 +1,8 @@
-//Esercizio 1-----------------------------------------------
+//Esercizio 1----------------------------------------------
 //1.
 const containerGame = document.querySelector('.container');
-
 const btnStart = document.getElementById('btn-start');
-
+let counterScore = 0;
 addBoxes();
 
 //2.
@@ -20,13 +19,13 @@ function addBoxes (numBoxes){
       if (listBom.includes(i)){
         isBomb = true;
       }
-
       if(isBomb){
         this.classList.toggle('bomb');
+        endGame ()
       }else {
       this.classList.toggle('clicked');
+      counterScore ++;
       }
-    
       console.log(box);
     //3.
   })
@@ -37,7 +36,7 @@ function addBoxes (numBoxes){
 let listBom =[];
 
 btnStart.addEventListener('click', function(){
-  containerGame.classList.remove('hide')
+  containerGame.classList.remove('hide');
   containerGame.innerHTML= ' ';
 
   // 3. creazione
@@ -56,7 +55,6 @@ btnStart.addEventListener('click', function(){
   } 
   lvl();
   console.log(listBom)
-  
 })
 
 function lvl(){
@@ -71,7 +69,8 @@ function lvl(){
     addBoxes(100);
   }
 }
-//Esercizio 1------------------------------------------------
 
-
-
+function endGame (){
+ containerGame.innerHTML=`<h1>Hai perso sfigato!</h1>`
+}
+//Esercizio 1---------------------------------------------
