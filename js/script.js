@@ -10,40 +10,53 @@ addBoxes();
 function addBoxes (numBoxes){
   for(let i = 1; i <= numBoxes; i++){
     let box = document.createElement('div');
+    box.setAttribute("id",i);
     box.classList.add(`square-${numBoxes}`);
     containerGame.append(box);
 
     //4.
     box.addEventListener('click', function() {
-      let click = this.classList.toggle('clicked');
-
+      let isBomb = false;
+      if (listBom.includes(i)){
+        isBomb = true;
+      }
+      
+      if(isBomb){
+        this.classList.toggle('bomb');
+      }else {
+      this.classList.toggle('clicked');
+      }
+    
+      console.log(box);
     //3.
   })
   }
 }
  
 //5.
+let listBom =[];
 
 btnStart.addEventListener('click', function(){
   containerGame.classList.remove('hide')
   containerGame.innerHTML= ' ';
-  lvl();
-  let listNum =[];
+  
+  //let listBom =[];
   
   for(let i = 0 ; i < 16; i++){ 
-    let tmp = Math.floor(Math.random()* 16 ) +1;
+    let tmp = Math.floor(Math.random() * 49 ) +1;
     
     let nuovo = true;
     for(let j = 0; j < i; j++){
-      if(listNum[j]==tmp)nuovo=false;
+      if(listBom[j]==tmp)nuovo=false;
     }
     if(nuovo){
-      listNum[i]=tmp;
+      listBom[i]=tmp;
     }else{
       i--;
     }
-    console.log(listNum)
   } 
+  lvl();
+  console.log(listBom)
   
 })
 
