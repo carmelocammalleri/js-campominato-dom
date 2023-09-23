@@ -14,7 +14,7 @@ function addBoxes (numBoxes){
     box.addEventListener('click', function(){
 
       let isBomb = false;
-      if (listBomb.includes[i]){
+      if (listBomb.includes(i)){
         this.classList.toggle('bomb');
         endGame ()
         isBomb = true;
@@ -30,13 +30,13 @@ function addBoxes (numBoxes){
 //5.
 let listBomb =[];
 
-btnStart.addEventListener('click', function(){
+btnStart.addEventListener('click', function (){
   containerGame.classList.remove('hide');
   containerGame.innerHTML= ' ';
 
   // 3. creazione
   for(let i = 0 ; i < 16; i++){ 
-    let tmp = Math.floor(Math.random() * 49 ) +1;
+    let tmp = Math.floor(Math.random() * 100) +1;
     
     let nuovo = true;
     for(let j = 0; j < i; j++){
@@ -48,8 +48,7 @@ btnStart.addEventListener('click', function(){
       i--;
     }
   } 
-  lvl();
-  console.log(listBomb)
+  lvl()
 })
 
 function lvl(){
@@ -66,6 +65,8 @@ function lvl(){
 }
 
 function endGame (){
- containerGame.innerHTML +=`<h1>Hai perso!</h1>`;
+
+  containerGame.innerHTML +=`<h1>Hai perso! Con il punteggio di ${counterScore}/33</h1>`;
+  counterScore = 0;
 }
 //Esercizio 1---------------------------------------------
