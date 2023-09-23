@@ -9,31 +9,26 @@ addBoxes();
 function addBoxes (numBoxes){
   for(let i = 1; i <= numBoxes; i++){
     let box = document.createElement('div');
-    box.setAttribute("id",i);
     box.classList.add(`square-${numBoxes}`);
     containerGame.append(box);
+    box.addEventListener('click', function(){
 
-    //4.
-    box.addEventListener('click', function() {
       let isBomb = false;
-      if (listBom.includes(i)){
-        isBomb = true;
-      }
-      if(isBomb){
+      if (listBomb.includes[i]){
         this.classList.toggle('bomb');
         endGame ()
-      }else {
-      this.classList.toggle('clicked');
-      counterScore ++;
+        isBomb = true;
+      } else {
+        this.classList.toggle('clicked');
+        counterScore ++;
       }
-      console.log(box);
-    //3.
-  })
+      console.log(counterScore);
+    })
   }
 }
- 
+
 //5.
-let listBom =[];
+let listBomb =[];
 
 btnStart.addEventListener('click', function(){
   containerGame.classList.remove('hide');
@@ -45,16 +40,16 @@ btnStart.addEventListener('click', function(){
     
     let nuovo = true;
     for(let j = 0; j < i; j++){
-      if(listBom[j]==tmp)nuovo=false;
+      if(listBomb[j]==tmp)nuovo=false;
     }
     if(nuovo){
-      listBom[i]=tmp;
+      listBomb[i]=tmp;
     }else{
       i--;
     }
   } 
   lvl();
-  console.log(listBom)
+  console.log(listBomb)
 })
 
 function lvl(){
@@ -71,6 +66,6 @@ function lvl(){
 }
 
 function endGame (){
- containerGame.innerHTML=`<h1>Hai perso sfigato!</h1>`
+ containerGame.innerHTML +=`<h1>Hai perso!</h1>`;
 }
 //Esercizio 1---------------------------------------------
